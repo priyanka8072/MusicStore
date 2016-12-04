@@ -43,18 +43,18 @@
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driverClassName}" /><!-- 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /><!-- 
 			com.mysql.jdbc.Driver -->
-		<property name="url" value="${jdbc.url}" /><!-- jdbc:mysql://localhost:3306/chinook -->
-		<property name="username" value="${jdbc.username}" /><!-- root -->
-		<property name="password" value="${jdbc.password}" /><!-- 3001 -->
+		<property name="url" value="jdbc:mysql://localhost:3306/chinook" /><!-- jdbc:mysql://localhost:3306/chinook -->
+		<property name="username" value="root" /><!-- root -->
+		<property name="password" value="3001" /><!-- 3001 -->
 	</bean>
 
-	<bean
+	<!-- <bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 		<property name="location">
 			<value>properties/database.properties</value>
 		</property>
-	</bean>
+	</bean> -->
 </beans>
