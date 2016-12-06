@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Employee</title>
+<link href="../../carousel/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="dashboard.css" rel="stylesheet">
+<link href="carousel1.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<!-- NAVBAR
+================================================== -->
+	<div class="navbar-wrapper">
+
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">MStore</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Albums</a></li>
+								<li><a href="#">Artists</a></li>
+								<li><a href="#">Songs</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="gallery.html" target="_blank">Browse
+										Galary</a></li>
+								<li><a href="index.html" target="_self">Home</a></li>
+								<li><a href="invoice.html" target="_self">Create
+										Invoice</a></li>
+							</ul></li>
+					</ul>
+					<form class="navbar-form navbar-left">
+						<div class="form-group">
+							<input type="text" class="form-control" id="formdata"
+								placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default" id="submit">Submit</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="page-header">
+		<h2>Fill Employee Details</h2>
+	</div>
+	<div class="container">
+		<form action="">
+			<div class="form-group">
+				<h3 class="sub-header">Personal Details</h3>
+				<div class="row">
+					<div class="col-sm-4">
+
+						FirstName:<input type="text" class="form-control" id="firstN"
+							placeholder="FirstName" required="required">
+					</div>
+					<div class="col-sm-4">
+						LastName: <input type="text" class="form-control" id="lastN"
+							placeholder="LastName" required="required">
+					</div>
+					<div class="col-sm-4">
+						DOB: <input type="date" class="form-control" id="lastN"
+							placeholder="BirthDate" required="required">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<h3 class="sub-header">Employee Profile</h3>
+				<div class="row">
+					<div class="col-sm-4">
+						Hire Date: <input type="date" class="form-control" id="lastN"
+							placeholder="HireDate">
+					</div>
+					<div class="col-sm-4">
+						Title:
+						<!-- <input type="" class="form-control" id="firstN"
+							placeholder="Designation" dropzone="HI"> -->
+
+						<select id="myList" class="form-control">
+							<option></option>							
+							<option>IT Staff</option>
+							<option>IT Manager</option>
+							<option>Sales Support Agent</option>
+							<option>Sales Manager</option>
+							<option>Sales Manager</option>
+						</select>
+					</div>
+					<div class="col-sm-4">
+						Reporting Staff ID: <input type="number" class="form-control"
+							id="lastN" placeholder="Employee ID">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<h3 class="sub-header">Employee Address</h3>
+				<div class="row">
+					<div class="col-sm-4">
+						Address:<input type="text" class="form-control" id="Cadd"
+							placeholder="Address">
+					</div>
+					<div class="col-sm-4">
+						City:<input type="text" class="form-control" id="Ccity"
+							placeholder="City">
+					</div>
+					<div class="col-sm-4">
+
+						State:<input type="text" class="form-control" id="Cstate"
+							placeholder="State">
+					</div>
+					<div class="col-sm-4">
+						Country:<input type="text" class="form-control" id="Ccountry"
+							placeholder="Country">
+					</div>
+					<div class="col-sm-4">
+						Postal Code:<input type="text" class="form-control" id="Ccode"
+							placeholder="PostalCode">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<h3 class="sub-header">Contact Details</h3>
+				<div class="row">
+					<div class="col-sm-4">
+						Phone:<input type="text" class="form-control" id="Cphone"
+							placeholder="PhoneNumber" pattern="0-9">
+					</div>
+					<div class="col-sm-4">
+						Email: <input type="text" class="form-control" id="Cemail"
+							placeholder="Email(abc@gmail.com)"
+							pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+					</div>
+					<div class="col-sm-4">
+						Fax: <input type="text" class="form-control" id="Cfax"
+							placeholder="Fax">
+					</div>
+				</div>
+			</div>
+			<p>
+				<button type="submit" class="btn btn-primary" id="Csubmit">Submit</button>
+				<button type="reset" class="btn btn-primary" id="Creset">Reset</button>
+			</p>
+		</form>
+	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="../../carousel/assets/js/vendor/jquery.min.js"><\/script>')
+	</script>
+	<script src="../../carousel/dist/js/bootstrap.min.js"></script>
+	<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+	<script src="../../carousel/assets/js/vendor/holder.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../../carousel/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="../../carousel/js/songSearch.js"></script>
+</body>
+</html>
