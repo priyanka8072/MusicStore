@@ -15,7 +15,7 @@
 
 	<servlet-mapping>
 		<servlet-name>appConfig</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/music/*</url-pattern>
 	</servlet-mapping>
 
 </web-app>

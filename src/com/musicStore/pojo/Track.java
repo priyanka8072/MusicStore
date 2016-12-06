@@ -2,15 +2,18 @@ package com.musicStore.pojo;
 
 public class Track {
 
-	private int id;
+	private int trackID;
 	private String trackName;
+	private String albumTitle;
+	private String artistName;
+	private String genreName;
 
-	public int getId() {
-		return id;
+	public int getTrackID() {
+		return trackID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setTrackID(int trackID) {
+		this.trackID = trackID;
 	}
 
 	public String getTrackName() {
@@ -19,6 +22,30 @@ public class Track {
 
 	public void setTrackName(String trackName) {
 		this.trackName = trackName;
+	}
+
+	public String getAlbumTitle() {
+		return albumTitle;
+	}
+
+	public void setAlbumTitle(String albumTitle) {
+		this.albumTitle = albumTitle;
+	}
+
+	public String getArtistName() {
+		return artistName;
+	}
+
+	public void setArtistName(String artistName) {
+		this.artistName = artistName;
+	}
+
+	public String getGenreName() {
+		return genreName;
+	}
+
+	public void setGenreName(String genreName) {
+		this.genreName = genreName;
 	}
 
 }

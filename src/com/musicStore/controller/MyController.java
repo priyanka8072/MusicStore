@@ -26,7 +26,7 @@ public class MyController {
 
 		Map<Object, Object> result = new HashMap<Object, Object>();
 		// result = myservice.getSong(name);
-		result = myservice.getSong("Evil Walks");
+		result = myservice.getSong(name);
 		return result;
 
 	}
