@@ -15,14 +15,14 @@
 <title>MStore</title>
 
 <!-- Bootstrap core CSS -->
-<link href="resources/carousel/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="carousel/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <!-- <link href="carousel/assets/css/ie10-viewport-bug-workaround.css"rel="stylesheet">
  -->
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<script src="resources/carousel/assets/js/ie-emulation-modes-warning.js"></script>
+<script src="carousel/assets/js/ie-emulation-modes-warning.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -31,7 +31,10 @@
     <![endif]-->
 
 <!-- Custom styles for this template -->
-<link href="resources/carousel/HTML/carousel.css" rel="stylesheet">
+<link href="carousel/HTML/carousel.css" rel="stylesheet">
+
+
+
 
 </head>
 <!-- NAVBAR
@@ -67,6 +70,8 @@
 									<li role="separator" class="divider"></li>
 									<li><a href="carousel/HTML/display.html" target="_blank">Browse
 											Galary</a></li>
+									<!-- <li><a href="carousel/js/example.html" target="_blank">Browse
+											Galary</a></li> -->
 									<li><a href="#">Admin</a></li>
 								</ul>
 								<form class="navbar-form navbar-left">
@@ -96,7 +101,7 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img class="first-slide" src="resources/carousel/Images/PF1.jpg"
+				<img class="first-slide" src="carousel/Images/PF1.jpg"
 					alt="First slide">
 				<div class="container">
 					<div class="carousel-caption">
@@ -110,7 +115,7 @@
 				</div>
 			</div>
 			<div class="item">
-				<img class="second-slide" src="resources/carousel/Images/AC.jpg"
+				<img class="second-slide" src="carousel/Images/AC.jpg"
 					alt="Second slide">
 				<div class="container">
 					<div class="carousel-caption">
@@ -124,7 +129,7 @@
 				</div>
 			</div>
 			<div class="item">
-				<img class="third-slide" src="resources/carousel/Images/Metallica.jpg"
+				<img class="third-slide" src="carousel/Images/Metallica.jpg"
 					alt="Third slide">
 				<div class="container">
 					<div class="carousel-caption">
@@ -164,7 +169,7 @@
 		<!-- Three columns of text below the carousel -->
 		<div class="row">
 			<div class="col-lg-4">
-				<img class="img-circle" src="resources/carousel/Images/Time1.PNG"
+				<img class="img-circle" src="carousel/Images/Time1.PNG"
 					alt="Generic placeholder image" width="140" height="140">
 				<h2></h2>
 				<p>Visit the store on weekdays</p>
@@ -172,7 +177,7 @@
 			</div>
 			<!-- /.col-lg-4 -->
 			<div class="col-lg-4">
-				<img class="img-circle" src="resources/carousel/Images/Time 2.PNG"
+				<img class="img-circle" src="carousel/Images/Time 2.PNG"
 					alt="Generic placeholder image" width="140" height="140">
 				<h2></h2>
 				<p>Special discounts on saturday</p>
@@ -180,7 +185,7 @@
 			</div>
 			<!-- /.col-lg-4 -->
 			<div class="col-lg-4">
-				<img class="img-circle" src="resources/carousel/Images/Time 3.PNG"
+				<img class="img-circle" src="carousel/Images/Time 3.PNG"
 					alt="Generic placeholder image" width="140" height="140">
 				<h2></h2>
 				<p>Listen to free music on sunday</p>
@@ -208,7 +213,7 @@
 			</div>
 			<div class="col-md-5">
 				<!--<img class="featurette-image img-responsive center-block" data-src="E:\MS Books\Dis&Para\Project\UI\carousel/Images/music1.jpg" alt="Generic placeholder image">-->
-				<img src="resources/carousel/Images/music1.jpg">
+				<img src="carousel/Images/music1.jpg">
 			</div>
 		</div>
 
@@ -226,7 +231,7 @@
 			</div>
 			<div class="col-md-5 col-md-pull-7">
 				<!--<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">-->
-				<img src="resources/carousel/Images/music2.jpg">
+				<img src="carousel/Images/music2.jpg">
 			</div>
 		</div>
 
@@ -243,7 +248,7 @@
 			</div>
 			<div class="col-md-5">
 				<!--<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">-->
-				<img src="resources/carousel/Images/music3.jpg">
+				<img src="carousel/Images/music3.jpg">
 			</div>
 		</div>
 
@@ -275,13 +280,13 @@
 	<script>
 		window.jQuery
 				|| document
-						.write('<script src="resources/carousel/assets/js/vendor/jquery.min.js"><\/script>')
+						.write('<script src="carousel/assets/js/vendor/jquery.min.js"><\/script>')
 	</script>
-	<script src="resources/carousel/dist/js/bootstrap.min.js"></script>
+	<script src="carousel/dist/js/bootstrap.min.js"></script>
 	<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-	<script src="resources/carousel/assets/js/vendor/holder.min.js"></script>
+	<script src="carousel/assets/js/vendor/holder.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="resources/carousel/assets/js/ie10-viewport-bug-workaround.js"></script>
-	<script src="resources/carousel/js/songSearch.js"></script>
+	<script src="carousel/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="carousel/js/songSearch.js"></script>
 </body>
 </html>
