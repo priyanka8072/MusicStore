@@ -1,8 +1,9 @@
 package com.musicStore.service;
 
-import java.util.Map;
+import java.util.ArrayList;
 
 import com.musicStore.dao.MyDao;
+import com.musicStore.pojo.Track;
 
 public class MyService {
 
@@ -12,7 +13,7 @@ public class MyService {
 		this.myDao = myDao;
 	}
 
-	public Map<Object, Object> getSong(String name) {
+	public ArrayList<Track> getSong(String name) {
 		return myDao.getSongs(name);
 	}
 

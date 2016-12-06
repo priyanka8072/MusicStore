@@ -2,7 +2,10 @@ $(function() {
 	$('#get-data').click(function() {
 		var showData = $('#searchresult');
 
-		$.getJSON('testSearch.json', function(data) {
+		var input=$('#form-data').val();
+		if(input){
+		var url = "http://localhost:8080/MusicStore/music/AccessRecords/" + input;
+		$.getJSON(url, function(data) {
 			console.log(data);
 
 			showData.empty();
@@ -27,7 +30,10 @@ $(function() {
 			}
 
 		});
-
 		showData.text('Loading the JSON file.');
+		}else{
+			alert("Please enter a track/album/artist name in search box !");
+		}
+		
 	});
 });

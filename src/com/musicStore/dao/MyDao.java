@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -21,10 +18,10 @@ public class MyDao {
 		this.dataSource = dataSource;
 	}
 
-	public Map<Object, Object> getSongs(String input) {
-		Map<Object, Object> result = new HashMap<Object, Object>();
-		List<Track> tracks = new ArrayList<Track>();
-		String sql = "SELECT T.TRACKID AS TRACKID, T.NAME AS TRACKNAME, AL.TITLE AS ALBUMTITLE, A.NAME AS ARTISTNAME, G.NAME AS GENRENAME "
+	public ArrayList<Track> getSongs(String input) {
+		int count = 0;
+		ArrayList<Track> tracks = new ArrayList<Track>();
+		String sql = "SELECT T.NAME AS TRACKNAME, AL.TITLE AS ALBUMTITLE, A.NAME AS ARTISTNAME, G.NAME AS GENRENAME "
 				+ "FROM TRACK T, ALBUM AL, ARTIST A, GENRE G WHERE T.ALBUMID = AL.ALBUMID "
 				+ "AND T.GENREID = G.GENREID " + "AND AL.ARTISTID = A.ARTISTID " + "AND (AL.TITLE LIKE ? "
 				+ "OR T.NAME LIKE ? " + " OR A.NAME LIKE ?) ORDER BY T.NAME";
@@ -40,8 +37,8 @@ public class MyDao {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				track = new Track();
+				track.setTrackID(++count);
 				track.setTrackName(rs.getString("TRACKNAME"));
-				track.setTrackID(rs.getInt("TRACKID"));
 				track.setAlbumTitle(rs.getString("ALBUMTITLE"));
 				track.setArtistName(rs.getString("ARTISTNAME"));
 				track.setGenreName(rs.getString("GENRENAME"));
@@ -49,7 +46,6 @@ public class MyDao {
 			}
 			rs.close();
 			ps.close();
-			result.put("tracks", tracks);
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -59,7 +55,7 @@ public class MyDao {
 			} catch (SQLException e) {
 			}
 		}
-		return result;
+		return tracks;
 	}
 
 }
