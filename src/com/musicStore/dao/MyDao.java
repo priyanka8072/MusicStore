@@ -5,14 +5,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.sql.DataSource;
 
+import com.musicStore.pojo.Employee;
+import com.musicStore.pojo.Invoice;
+import com.musicStore.pojo.InvoiceLine;
+import com.musicStore.pojo.RespPojo;
+import com.musicStore.pojo.SqlQuery;
 import com.musicStore.pojo.Track;
 
 public class MyDao {
 
 	private DataSource dataSource;
+	Connection conn = null;
+	PreparedStatement ps = null;
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
@@ -21,15 +29,9 @@ public class MyDao {
 	public ArrayList<Track> getSongs(String input) {
 		int count = 0;
 		ArrayList<Track> tracks = new ArrayList<Track>();
-		String sql = "SELECT T.NAME AS TRACKNAME, AL.TITLE AS ALBUMTITLE, A.NAME AS ARTISTNAME, G.NAME AS GENRENAME "
-				+ "FROM TRACK T, ALBUM AL, ARTIST A, GENRE G WHERE T.ALBUMID = AL.ALBUMID "
-				+ "AND T.GENREID = G.GENREID " + "AND AL.ARTISTID = A.ARTISTID " + "AND (AL.TITLE LIKE ? "
-				+ "OR T.NAME LIKE ? " + " OR A.NAME LIKE ?) ORDER BY T.NAME";
-
-		Connection conn = null;
 		try {
 			conn = dataSource.getConnection();
-			PreparedStatement ps = conn.prepareStatement(sql);
+			ps = conn.prepareStatement(SqlQuery.getSong);
 			ps.setString(1, "%" + input + "%");
 			ps.setString(2, "%" + input + "%");
 			ps.setString(3, "%" + input + "%");
@@ -56,6 +58,212 @@ public class MyDao {
 			}
 		}
 		return tracks;
+	}
+
+	public RespPojo saveEmployee(Employee emp) {
+		RespPojo response = new RespPojo();
+		try {
+			int id = getID(0);
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(SqlQuery.saveEmp);
+			ps.setInt(1, id);
+			ps.setString(2, emp.getFirstName());
+			ps.setString(3, emp.getLastName());
+			ps.setDate(4, emp.getBirthday());
+			ps.setDate(5, emp.getHireDate());
+			ps.setString(6, emp.getTitle());
+			ps.setInt(7, emp.getReportsTo());
+			ps.setString(8, emp.getAddress());
+			ps.setString(9, emp.getCity());
+			ps.setString(10, emp.getState());
+			ps.setString(11, emp.getCountry());
+			ps.setString(12, emp.getPostalCode());
+			ps.setString(13, emp.getPhone());
+			ps.setString(14, emp.getEmail());
+			ps.setString(15, emp.getFax());
+
+			int rs = ps.executeUpdate();
+
+			if (rs == 1) {
+				response.setFirstName(emp.getFirstName());
+				response.setId(id);
+			} else
+				response.setStatus("Failed to update the user!");
+			ps.close();
+
+		} catch (SQLException e) {
+			response.setStatus("Failed to update the user! : " + e.toString());
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return response;
+	}
+
+	public RespPojo saveCustomer(Employee emp) {
+		RespPojo response = new RespPojo();
+		try {
+			int id = getID(1);
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(SqlQuery.saveCust);
+			ps.setInt(1, id);
+			ps.setString(2, emp.getFirstName());
+			ps.setString(3, emp.getLastName());
+			ps.setString(4, emp.getAddress());
+			ps.setString(5, emp.getCity());
+			ps.setString(6, emp.getState());
+			ps.setString(7, emp.getCountry());
+			ps.setString(8, emp.getPostalCode());
+			ps.setString(9, emp.getCompany());
+			ps.setString(10, emp.getPhone());
+			ps.setString(11, emp.getEmail());
+			ps.setString(12, emp.getFax());
+			ps.setInt(13, emp.getSupportRepID());
+
+			int rs = ps.executeUpdate();
+
+			if (rs == 1) {
+				response.setFirstName(emp.getFirstName());
+				response.setId(id);
+			} else
+				response.setStatus("Failed to update the user!");
+			ps.close();
+
+		} catch (SQLException e) {
+			response.setStatus("Failed to update the user! : " + e.toString());
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return response;
+	}
+
+	public String invoice(Invoice inv) {
+		String response = "";
+		try {
+			int id = getID(2);
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(SqlQuery.invoice);
+			ps.setInt(1, id);
+			ps.setInt(2, inv.getCustomerID());
+			ps.setDate(3, inv.getInvoiceDate());
+			ps.setString(4, inv.getBillingAddress());
+			ps.setString(5, inv.getBillingCity());
+			ps.setString(6, inv.getBillingState());
+			ps.setString(7, inv.getBillingCountry());
+			ps.setString(8, inv.getBillingPostalCode());
+			ps.setFloat(9, inv.getTotal());
+
+			int rs = ps.executeUpdate();
+
+			if (rs == 1) {
+				response = saveInvoiceLine(id, inv) + " and Invoice";
+			} else
+				response = "Failed to creat an Invoice!";
+			ps.close();
+
+		} catch (SQLException e) {
+			response = "Failed to update the user! : " + e.toString();
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return response;
+	}
+
+	private String saveInvoiceLine(int invID, Invoice inv) {
+		String response = "";
+		try {
+			Iterator<InvoiceLine> itr = inv.getInvoiceLine().iterator();
+			while (itr.hasNext()) {
+				int id = getID(3);
+				InvoiceLine invoiceLine = itr.next();
+				conn = dataSource.getConnection();
+				ps = conn.prepareStatement(SqlQuery.invoiceLine);
+				ps.setInt(1, id);
+				ps.setInt(2, invID);
+				ps.setInt(3, invoiceLine.getTrackID());
+				ps.setFloat(4, invoiceLine.getUnitPrice());
+				ps.setInt(5, invoiceLine.getQuantity());
+				int rs = ps.executeUpdate();
+			}
+			response = "Successfully updated InvoiceLine";
+			ps.close();
+
+		} catch (SQLException e) {
+			response = "Exception occured.. " + e.toString();
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return response;
+	}
+
+	private int getID(int flag) {
+		int id = 0;
+		try {
+			conn = dataSource.getConnection();
+			switch (flag) {
+			case 0:
+				ps = conn.prepareStatement(SqlQuery.getEmpID);
+				break;
+			case 1:
+				ps = conn.prepareStatement(SqlQuery.getCustID);
+				break;
+			case 2:
+				ps = conn.prepareStatement(SqlQuery.getInvoiceID);
+				break;
+			default:
+				ps = conn.prepareStatement(SqlQuery.getInvoiceLineID);
+				break;
+			}
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				id = rs.getInt("ID");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return ++id;
+	}
+
+	public RespPojo unitPrice(int trackID) {
+		RespPojo result = new RespPojo();
+		try {
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(SqlQuery.unitPrice);
+			ps.setInt(1, trackID);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				result.setUnitPrice(rs.getFloat("UNITPRICE"));
+				result.setTrackName(rs.getString("NAME"));
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return result;
 	}
 
 }
