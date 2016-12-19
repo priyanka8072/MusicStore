@@ -4,8 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Customer Invoice</title>
 <link href="../../carousel/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="../../carousel/js/songSearch.js"></script>
-<script src="../../carousel/js/songSearch.js"></script>
+
 <link href="dashboard.css" rel="stylesheet">
 <link href="carousel1.css" rel="stylesheet">
 
@@ -41,7 +40,8 @@
 								<li><a href="#">Artists</a></li>
 								<li><a href="#">Songs</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="customeradd.html" target="_blank">Create Customer</a></li>
+								<li><a href="customeradd.html" target="_blank">Create
+										Customer</a></li>
 								<li><a href="index.html" target="_self">Home</a></li>
 							</ul></li>
 					</ul>
@@ -60,14 +60,14 @@
 		<h2>Customer Invoice</h2>
 	</div>
 	<div class="container">
-		<form action="">
-			<div class="form-group">
+	<form class = "custInvoice">
+				<div class="form-group">
 				<!-- <h3 class="sub-header">Customer Name</h3> -->
 				<div class="row">
 					<div class="col-sm-4">
 
 						Customer ID:<input type="text" class="form-control"
-							placeholder="Customer ID" required="required">
+							placeholder="Customer ID" required="required" id = "custID">
 					</div>
 					<div class="col-sm-4">
 						<div class="form-date">
@@ -83,24 +83,24 @@
 				<div class="row">
 					<div class="col-sm-4">
 						Billing Address:<input type="text" class="form-control"
-							id="formdata" placeholder="Address">
+							placeholder="Address" id="iAddress">
 					</div>
 					<div class="col-sm-4">
 						Billing City:<input type="text" class="form-control"
-							placeholder="City">
+							placeholder="City" id="iCity">
 					</div>
 					<div class="col-sm-4">
 
 						Billing State:<input type="text" class="form-control"
-							placeholder="State">
+							placeholder="State" id="iState">
 					</div>
 					<div class="col-sm-4">
 						Billing Country:<input type="text" class="form-control"
-							placeholder="Country">
+							placeholder="Country" id="iCountry">
 					</div>
 					<div class="col-sm-4">
 						Billing Postal Code:<input type="text" class="form-control"
-							placeholder="PostalCode">
+							placeholder="PostalCode" id="iCode">
 					</div>
 				</div>
 			</div>
@@ -108,7 +108,7 @@
 			<div class="form-group">
 				<h3 class="sub-header">Product Details</h3>
 				<div class="table-responsive">
-					<table class="table table-striped">
+					<table class="table table-striped" id ="example">
 						<thead>
 							<tr>
 								<th>Serial No.</th>
@@ -118,40 +118,32 @@
 								<th>Row Total</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class = "tblBody">
 							<tr>
-								<td><input type="tabindex" class="form-control"
-								placeholder="Number" readonly="readonly"></td>
-								<td><input type="number" class="form-control"
-								placeholder="Track ID" required="required"></td>
-								<td><input type="number" class="form-control"
-								placeholder="UnitPrice" readonly="readonly"></td>
-								<td><input type="number" class="form-control"
-								placeholder="Quantity"></td>
-								<td><input type="number" class="form-control"
-								placeholder="Row Total" readonly="readonly"></td>
+								<td><input type='number' class='form-control' placeholder='Number' readonly='readonly' value="1"></td>
+								<td class ='track'><input type='number' class='form-control trackId' placeholder='Track ID' required='required'></td>
+								<td><input type="text" class='form-control tname' placeholder='Track Name' readonly='readonly'></td>
+								<td><input type='number' class='form-control unitP' placeholder='UnitPrice' readonly='readonly'></td>
+								<td class ='quant'><input type='number' class='form-control quantity' placeholder='Quantity'></td>
+								<td><input type='number' class='form-control rtotal' placeholder='Row Total' readonly='readonly'></td>
+								<td><button class='btnDelete'>-</button></td>
+								<td><button class='btnAdd'>+</button></td>
 							</tr>
-							<tr>
-								<td><input type="number" class="form-control"
-								placeholder="Number" readonly="readonly"></td>
-								<td><input type="number" class="form-control"
-								placeholder="Track ID" required="required"></td>
-								<td><input type="number" class="form-control"
-								placeholder="UnitPrice" readonly="readonly"></td>
-								<td><input type="number" class="form-control"
-								placeholder="Quantity"></td>
-								<td><input type="number" class="form-control"
-								placeholder="Row Total" readonly="readonly"></td>
-							</tr>
+							<!-- <tr>
+								<th>Total:</th>
+								<td><input type="number" class="form-control fTotal" readonly='readonly'></td>
+							</tr> -->
 						</tbody>
 					</table>
+					<p class="col-sm-4">Total: <input type="number" class="form-control fTotal" readonly='readonly' id="tot" ></p>
 				</div>
 			</div>
-			<p>
-				<button type="submit" class="btn btn-primary" id="submit">Submit</button>
-				<button type="reset" class="btn btn-primary" id="reset">Reset</button>
-			</p>
-		</form>
+
+				<button type="submit" class="btn btn-primary" id="Isubmit">Submit</button>
+				<button type="reset" class="btn btn-primary" id="Ireset">Reset</button>
+				
+ 		</form>
+	
 	</div>
 	<!-- Bootstrap core JavaScript
     ================================================== -->
@@ -168,6 +160,8 @@
 	<script src="../../carousel/assets/js/vendor/holder.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../carousel/assets/js/ie10-viewport-bug-workaround.js"></script>
-	<script src="../../carousel/js/songSearch.js"></script>
+	<script src="../../carousel/HTML/invoice.js"></script>
+	<script src="../../carousel/HTML/addInvoice.js"></script>	
+	
 </body>
 </html>

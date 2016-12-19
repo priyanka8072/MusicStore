@@ -64,23 +64,16 @@
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">Dropdown <span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="#">Albums</a></li>
+									<!-- <li><a href="#">Albums</a></li>
 									<li><a href="#">Artists</a></li>
-									<li><a href="#">Songs</a></li>
+									<li><a href="#">Songs</a></li> -->
 									<li role="separator" class="divider"></li>
 									<li><a href="carousel/HTML/display.html" target="_blank">Browse
 											Galary</a></li>
 									<!-- <li><a href="carousel/js/example.html" target="_blank">Browse
 											Galary</a></li> -->
-									<li><a href="#">Admin</a></li>
+									<li><a href="carousel/HTML/Admin.html">Admin</a></li>
 								</ul>
-								<form class="navbar-form navbar-left">
-									<div class="form-group">
-										<input type="text" class="form-control" id="formdata"
-											placeholder="Search">
-									</div>
-									<button type="submit" class="btn btn-default" id="submit">Submit</button>
-								</form></li>
 						</ul>
 					</div>
 				</div>
@@ -108,7 +101,7 @@
 						<h1>A store for all</h1>
 						<p></p>
 						<p>
-							<a class="btn btn-lg btn-primary" href="gallery.html"
+							<a class="btn btn-lg btn-primary" href="carousel/HTML/display.html"
 								role="button" target="_blank">Browse gallery</a>
 						</p>
 					</div>
@@ -122,7 +115,7 @@
 						<h1>Best deal on your music</h1>
 						<p></p>
 						<p>
-							<a class="btn btn-lg btn-primary" href="gallery.html"
+							<a class="btn btn-lg btn-primary" href="carousel/HTML/display.html"
 								role="button" target="_blank">Browse gallery</a>
 						</p>
 					</div>
@@ -141,7 +134,7 @@
 							Top sellers
 							<h1>
 								<p>
-									<a class="btn btn-lg btn-primary" href="gallery.html"
+									<a class="btn btn-lg btn-primary" href="carousel/HTML/display.html"
 										role="button" target="_blank">Browse gallery</a>
 								</p>
 					</div>

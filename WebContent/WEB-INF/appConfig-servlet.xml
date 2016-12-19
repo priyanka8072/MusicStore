@@ -31,7 +31,7 @@
 		<property name="url" value="jdbc:mysql://localhost:3306/chinook" /><!-- 
 			jdbc:mysql://localhost:3306/chinook -->
 		<property name="username" value="root" /><!-- root -->
-		<property name="password" value="1234" /><!-- 3001 -->
+		<property name="password" value="3001" /><!-- 3001 -->
 	</bean>
 
 	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
