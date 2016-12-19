@@ -27,4 +27,10 @@ public class SqlQuery {
 			+ "INVOICELINE (INVOICELINEID, INVOICEID, TRACKID, UNITPRICE, QUANTITY) VALUES(?,?,?,?,?)";
 
 	public static String unitPrice = "SELECT UNITPRICE, NAME FROM TRACK WHERE TRACKID=?";
+
+	public static String getCustomer = "SELECT * FROM CUSTOMER WHERE CUSTOMERID=?";
+
+	public static String updateCustomer = "UPDATE CUSTOMER SET FIRSTNAME =?, LASTNAME=?, ADDRESS=?, "
+			+ "CITY=?, STATE=?, COUNTRY=?, POSTALCODE=?, COMPANY=?, PHONE=?, EMAIL=?, FAX=?, SUPPORTREPID=? "
+			+ " WHERE CUSTOMERID=?";
 }

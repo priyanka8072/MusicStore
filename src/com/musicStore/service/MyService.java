@@ -36,4 +36,12 @@ public class MyService {
 		return myDao.unitPrice(trackID);
 	}
 
+	public String updateCustomer(Employee emp) {
+		return myDao.updateCustomer(emp);
+	}
+
+	public Employee getCustomer(int customerID) {
+		return myDao.getCustomer(customerID);
+	}
+
 }

@@ -51,4 +51,14 @@ public class MyController {
 	public @ResponseBody RespPojo getUnitPrice(@PathVariable int trackID) {
 		return myservice.getUnitPrice(trackID);
 	}
+	
+	@RequestMapping(value = "/updateCustomer", method = RequestMethod.POST, produces = "application/json")
+	public @ResponseBody String updateCustomer(@RequestBody Employee emp) {
+		return myservice.updateCustomer(emp);
+	}
+
+	@RequestMapping(value = "/validateCustomer/{customerID}", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody Employee validateCustomer(@PathVariable int customerID) {
+		return myservice.getCustomer(customerID);
+	}
 }

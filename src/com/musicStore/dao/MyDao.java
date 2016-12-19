@@ -266,4 +266,83 @@ public class MyDao {
 		return result;
 	}
 
+	public Employee getCustomer(int customerID) {
+		Employee emp = new Employee();
+		try {
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(SqlQuery.getCustomer);
+			ps.setInt(1, customerID);
+
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				emp.setFirstName(rs.getString("FIRSTNAME"));
+				emp.setLastName(rs.getString("LASTNAME"));
+				emp.setAddress(rs.getString("ADDRESS"));
+				emp.setCity(rs.getString("CITY"));
+				emp.setState(rs.getString("STATE"));
+				emp.setCountry(rs.getString("COUNTRY"));
+				emp.setPostalCode(rs.getString("POSTALCODE"));
+				emp.setCompany(rs.getString("COMPANY"));
+				emp.setPhone(rs.getString("PHONE"));
+				emp.setEmail(rs.getString("EMAIL"));
+				emp.setFax(rs.getString("FAX"));
+				emp.setSupportRepID(rs.getInt("SUPPORTREPID"));
+			} else
+				emp.setStatus("Customer with this customerID does not exists");
+
+			ps.close();
+
+		} catch (SQLException e) {
+			emp.setStatus("Failed to get the user! : " + e.toString());
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return emp;
+	}
+
+	public String updateCustomer(Employee emp) {
+		String response = null;
+		try {
+			conn = dataSource.getConnection();
+			ps = conn.prepareStatement(SqlQuery.updateCustomer);
+			ps.setString(1, emp.getFirstName());
+			ps.setString(2, emp.getLastName());
+			ps.setString(3, emp.getAddress());
+			ps.setString(4, emp.getCity());
+			ps.setString(5, emp.getState());
+			ps.setString(6, emp.getCountry());
+			ps.setString(7, emp.getPostalCode());
+			ps.setString(8, emp.getCompany());
+			ps.setString(9, emp.getPhone());
+			ps.setString(10, emp.getEmail());
+			ps.setString(11, emp.getFax());
+			ps.setInt(12, emp.getSupportRepID());
+			int id =emp.getCustID();
+			ps.setInt(13, id);
+
+			int rs = ps.executeUpdate();
+
+			if (rs == 1) {
+				response = "Customer with ID " + id + " updated successfully";
+			} else
+				response = "Customer with ID " + id + " could not be updated ";
+			ps.close();
+
+		} catch (SQLException e) {
+			response = response + e.toString();
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		return null;
+	}
+
 }

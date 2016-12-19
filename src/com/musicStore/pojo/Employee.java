@@ -3,6 +3,7 @@ package com.musicStore.pojo;
 import java.sql.Date;
 
 public class Employee {
+	int custID;
 	String firstName;
 	String lastName;
 	Date birthday;
@@ -19,6 +20,15 @@ public class Employee {
 	String fax;
 	String company;
 	int supportRepID;
+	String status;
+
+	public int getCustID() {
+		return custID;
+	}
+
+	public void setCustID(int custID) {
+		this.custID = custID;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -146,5 +156,13 @@ public class Employee {
 
 	public void setSupportRepID(int supportRepID) {
 		this.supportRepID = supportRepID;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }
