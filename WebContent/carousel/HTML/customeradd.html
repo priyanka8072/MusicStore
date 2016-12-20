@@ -46,18 +46,40 @@
 			</div>
 		</nav>
 	</div>
-	<div id ="showcus">
-	</div>
-	<div class="page-header">
-		<h2>Fill Customer Details</h2>
-	</div>
-	<div class="container">
+		<div class="page-header head1">
+		<button type="button" class="btn btn-primary" id="Ccreate">Create Customer</button>
+		<button type="button" class="btn btn-primary" id="Cupdate">Update Customer</button>
+		<h2 class="fhead hide">Fill Customer Details</h2>
+		<h2 class="shead hide">Update Customer Details</h2>
+		</div>
+		<div class="page-header head2 hide">
+		<h2 class="fhead">Fill Customer Details</h2>
+		</div>
+		<div class="page-header head3 hide">
+		<h2 class="shead">Update Customer Details</h2>
+		</div>
+  		<div class="page-header head4 hide">
+			<div class="alert alert-success alert-dismissable">
+    			<a href="#" class="close" data-dismiss="alert" aria-label="close" id = "closed">×</a>	 
+  			</div>	
+  		</div>
+	
+	<div class="container bodyCont hide">
 		<form id="custform">
 	<div class="form-group">
-		<h3 class="sub-header">Customer Name</h3>
+		<h3 class="sub-header">Customer Details</h3>
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-sm-4 cust hide">
 
+						Customer ID:<input type="number" class="form-control"
+							placeholder="Customer ID" required="required" id = "custID">
+							  <div class="alert alert-danger alert-dismissable hide fade in">
+   								 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+   								 
+    							<!-- <strong>Alert!</strong> Customer dose not exist. -->
+  								</div>
+					</div>
+			<div class="col-sm-4">
 				FirstName:<input type="text" class="form-control" id="firstN"
 					placeholder="FirstName" required="required">
 			</div>
@@ -104,7 +126,7 @@
 		<div class="row">
 			<div class="col-sm-4">
 				Phone:<input type="text" class="form-control" id="Cphone"
-					placeholder="PhoneNumber" pattern="0-9">
+					placeholder="PhoneNumber">
 			</div>
 			<div class="col-sm-4">
 				Email: <input type="text" class="form-control" id="Cemail"
@@ -120,13 +142,14 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<h3 class="sub-header">Employee ID</h3>
-				<input type="text" class="form-control" id="empId"
+				<input type="number" class="form-control" id="empId"
 					placeholder="Employee ID" required="required">
 			</div>
 		</div>
 	</div>
 	<p>
-		<button type="submit" class="btn btn-primary" id="Csubmit">Submit</button>
+		<button type="submit" class="btn btn-primary hide" id="Csubmit">Submit</button>
+		<button type="submit" class="btn btn-primary hide" id="Cupd">Update</button>
 		<button type="reset" class="btn btn-primary" id="Creset">Reset</button>
 	</p>
 	</form>

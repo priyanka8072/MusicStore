@@ -50,11 +50,15 @@
 			</div>
 		</nav>
 	</div>
-	<div class="page-header" id = "showemp">
+	<div class="page-header" id = "tempH1">
 		<h2>Fill Employee Details</h2>
 	</div>
-	<div class="container">
-	<div  id="testresult" ></div>
+	<div class="page-header tempH2 hide">
+			<div class="alert alert-success alert-dismissable">
+    			<a href="#" class="close" data-dismiss="alert" aria-label="close" id = "closed">×</a>	 
+  			</div>	
+  	</div>
+	<div class="container tempCont">
 		<form id = "empform">
 			<div class="form-group">
 				<h3 class="sub-header">Personal Details</h3>
@@ -98,7 +102,7 @@
 					</div>
 					<div class="col-sm-4">
 						Reporting Staff ID: <input type="number" class="form-control"
-							id="staffID" placeholder="Employee ID">
+							id="staffID" placeholder="Employee ID" required="required">
 					</div>
 				</div>
 			</div>

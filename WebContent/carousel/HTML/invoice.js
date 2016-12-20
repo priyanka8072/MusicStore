@@ -1,6 +1,44 @@
 $(function() {
 
 	var ft = 0;
+	$('#custID').keyup(function() {
+		
+		var custID = $('#custID').val();
+		var url = "http://localhost:8080/MusicStore/music/AccessRecords/validateCustomer/" + custID;
+		if(custID){
+			  $.ajax({
+				type: "GET",
+				contenType:"application/json",
+				url: url,
+				dataType: 'json',
+					success : function(data){
+						if(!data["firstName"]){
+							 
+							$('.alert').removeClass('hide');
+							$('.alert').append("<strong>Alert!</strong><a href='customeradd.html' target='_self'> Customer</a> "+ custID +" does not exist. Click on customer to create new"
+									);
+							$('#custID').val(null);
+
+						}else{
+							$('#iAddress').val(data['address']);
+							$('#iCity').val(data['city']);
+							$('#iState').val(data['state']);
+							$('#iCountry').val(data['country']);
+							$('#iCode').val(data['postalCode']);
+
+						}
+							
+					}
+			  });
+			  };
+		
+	});
+	
+$('.close').click(function(e) {	
+	e.preventDefault();
+	location.reload();
+
+});
 
 $('.form-group').on('keyup','.track', function() {
 	      var row = $(this).closest('tr');
@@ -39,7 +77,6 @@ $('.form-group').on('keyup','.rtotal', function() {
 	var rvalue = parseFloat(row.find('.rtotal').val());
 	 ft = (ft + rvalue);
 	$('.fTotal').val(ft.toFixed(2));
-	  console.log(ft);
 
 });
 
@@ -56,13 +93,13 @@ $('.form-group').on('click','.btnDelete', function() {
 
 
 });
-var index = 2;
+var index = 1;
 
 $('.form-group').on('click','.btnAdd', function() {
 	
 	
 	var appendTxt = "<tr>" +
-	"<td><input type='number' class='form-control' placeholder='Number' readonly='readonly' value="+index+"></td>" +
+	"<td><input type='number' class='form-control' placeholder='Number' readonly='readonly' value="+(index+1)+"></td>" +
 	"<td class ='track'><input type='number' class='form-control trackId' placeholder='Track ID' required='required'></td>" +
 	"<td><input type='text' class='form-control tname' placeholder='Track Name' readonly='readonly'></td>" +
 	"<td><input type='number' class='form-control unitP' placeholder='UnitPrice' readonly='readonly'></td>" +

@@ -1,8 +1,8 @@
 $(function() {
 	  
-	  $('#Isubmit').click(function(e) {
+	  $('#Isubmit').click(function(g) {
 		  
-			e.preventDefault();
+			g.preventDefault();
 			
 			var myRows = [];
 			var $headers = $("th");
@@ -13,37 +13,39 @@ $(function() {
 			  myRows[index]["quantity"] = $(tr).find('.quantity').val();
 			  });
 		  
-		  var inv = {}
-			inv["customerID"] = $("#custID").val();
-			inv["invoiceDate"] = $("#form-date").val();
-			inv["billingAddress"] = $("#iAddress").val();
-			inv["billingCity"] = $("#iCity").val();
-			inv["billingState"] = $("#iState").val();
-			inv["billingCountry"] = $("#iCountry").val();
-			inv["billingPostalCode"] = $("#iCode").val();
-			inv["total"] = $("#tot").val();
-			inv["invoiceLine"] = myRows;
+		  var invoice = {}
+		  invoice["customerID"] = $("#custID").val();
+		  invoice["invoiceDate"] = $("#form-date").val();
+		  invoice["billingAddress"] = $("#iAddress").val();
+		  invoice["billingCity"] = $("#iCity").val();
+		  invoice["billingState"] = $("#iState").val();
+		  invoice["billingCountry"] = $("#iCountry").val();
+		  invoice["billingPostalCode"] = $("#iCode").val();
+		  invoice["total"] = $("#tot").val();
+		  invoice["invoiceLine"] = myRows;
 			 
+			inv = JSON.stringify(invoice);
 			/*if(inv["customerID"] && inv["invoiceLine"] && inv["total"] && inv["invoiceDate"]){
 			 console.log(JSON.stringify(inv));
 			}else console.log("Please fill the mandatory data!");*/
-
-			if(inv["customerID"] && inv["invoiceLine"] && inv["total"] && inv["invoiceDate"]){
+			console.log(inv);
+			if(invoice["customerID"] && invoice["invoiceLine"] && invoice["total"] && invoice["invoiceDate"]){
 			var showData = $('.custInvoice');
 			var newurl = "http://localhost:8080/MusicStore/music/AccessRecords/invoice";
 			$.ajax({
 				type : "POST",
 				contentType : "application/json",
 				url : newurl,
-				data : JSON.stringify(inv),
+				data : inv,
 				dataType : 'json',
 				success : function(data) {
-					showData.empty();
-				},
-				error : function(e) {
-					console.log("Error: ", e);
-					display(e);
-				}
+					$('.head4').removeClass('hide');
+					$('.alert-success').append("<strong>Success!</strong> Invoice for customer with ID:" +invoice["customerID"]+ " updated successfully. " +
+							"<a href='invoice.html' target='_self'> click </a> to create new invoice");
+					$('.custInvoice').addClass('hide');	},
+					error : function(e) {
+						console.log("Error: ", e);
+					},
 			});
 			}else{alert("Please fill the mandatory data!");}
 		});

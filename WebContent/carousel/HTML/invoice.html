@@ -30,15 +30,13 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">About</a></li>
+						<li ><a href="#about">About</a></li>
 						<li><a href="#contact">Contact</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">Dropdown <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Albums</a></li>
-								<li><a href="#">Artists</a></li>
-								<li><a href="#">Songs</a></li>
+								<li><a href="#">Admin</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="customeradd.html" target="_blank">Create
 										Customer</a></li>
@@ -59,7 +57,13 @@
 	<div class="page-header">
 		<h2>Customer Invoice</h2>
 	</div>
+	  		
 	<div class="container">
+		<div class="page-header head4 hide">
+			<div class="alert alert-success alert-dismissable">
+    			<a href="#" class="close" data-dismiss="alert" aria-label="close" id = "closed">×</a>	 
+  			</div>	
+  		</div>
 	<form class = "custInvoice">
 				<div class="form-group">
 				<!-- <h3 class="sub-header">Customer Name</h3> -->
@@ -68,6 +72,11 @@
 
 						Customer ID:<input type="text" class="form-control"
 							placeholder="Customer ID" required="required" id = "custID">
+							  <div class="alert alert-danger alert-dismissable hide fade-Out">
+   								 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+   								 
+    							<!-- <strong>Alert!</strong> Customer dose not exist. -->
+  								</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="form-date">
@@ -113,6 +122,7 @@
 							<tr>
 								<th>Serial No.</th>
 								<th>Track ID</th>
+								<th>Track Name</th>								
 								<th>Unit Price</th>
 								<th>Quantity</th>
 								<th>Row Total</th>
@@ -135,7 +145,7 @@
 							</tr> -->
 						</tbody>
 					</table>
-					<p class="col-sm-4">Total: <input type="number" class="form-control fTotal" readonly='readonly' id="tot" ></p>
+					<p class="col-sm-4">Total $: <input type="number" class="form-control fTotal" readonly='readonly' id="tot" ></p>
 				</div>
 			</div>
 

@@ -1,8 +1,10 @@
 $(function() {
 	$('#Esubmit')
 			.click(
-					function() {
-
+					function(f) {						
+						
+						 f.preventDefault();
+						
 						var emp = {}
 						emp["firstName"] = $("#firstN").val();
 						emp["lastName"] = $("#lastN").val();
@@ -19,7 +21,6 @@ $(function() {
 						emp["email"] = $("#eemail").val();
 						emp["fax"] = $("#efax").val();
 						
-						var showData = $('#showemp');
 						var newurl = "http://localhost:8080/MusicStore/music/AccessRecords/saveEmp";
 
 						$.ajax({
@@ -29,14 +30,22 @@ $(function() {
 							data : JSON.stringify(emp),
 							dataType : 'json',
 							success : function(data) {
-								showData.empty();
-								showData.append($('<p/>').html(data[firstName]));
+								$('#tempH1').addClass('hide');
+								$('.tempH2').removeClass('hide');
+								$('.alert-success').append("<strong>Success!</strong> Details of employee <strong>"+emp["firstName"]+"</strong> with ID :" +data["id"]+ " created successfully. " +
+										"<a href='empadd.html' target='_self'> Click </a> to create new employee.");
+								$('.tempCont').addClass('hide');
 							},
 							error : function(e) {
 								console.log("Error: ", e);
-								display(e);
 							}
 						});
 					});
+	
+	$('#closed').click(function(e) {	
+		e.preventDefault();
+		location.reload();
+
+	});
 
 })

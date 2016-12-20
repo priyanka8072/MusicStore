@@ -58,21 +58,22 @@
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#about">About</a></li>
+							<li class="dropdown"><a href="#about">About</a></li>
 							<li><a href="#contact">Contact</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">Dropdown <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<!-- <li><a href="#">Albums</a></li>
-									<li><a href="#">Artists</a></li>
-									<li><a href="#">Songs</a></li> -->
+									<li><a href="#">Artists</a></li>-->
 									<li role="separator" class="divider"></li>
 									<li><a href="carousel/HTML/display.html" target="_blank">Browse
 											Galary</a></li>
 									<!-- <li><a href="carousel/js/example.html" target="_blank">Browse
 											Galary</a></li> -->
 									<li><a href="carousel/HTML/Admin.html">Admin</a></li>
+									<li><a href="carousel/HTML/emplogin.html">Employee</a></li> 
+									
 								</ul>
 						</ul>
 					</div>
