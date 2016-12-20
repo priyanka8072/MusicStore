@@ -4,10 +4,10 @@ $('#empSubmit').click(function(g) {
 			
 		  
 		  var user = {}
-		  user["userName"] = $("#inputName").val();
+		  user["username"] = $("#inputName").val();
 		  user["password"] = $("#inputPassword").val();
 			 
-			if(user["userName"] && user["password"]){
+			if(user["username"] && user["password"]){
 			var newurl = "http://localhost:8080/MusicStore/music/LoginController/login";
 			$.ajax({
 				type : "POST",

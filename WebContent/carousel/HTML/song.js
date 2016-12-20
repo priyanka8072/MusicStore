@@ -1,5 +1,5 @@
 $(function() {
-	  $("#form-data").keyup(function (e) {
+/*	  $("#form-data").keyup(function (e) {
 		    if (e.which == 13) {
 		      $('#get-data').trigger('click');
 		    }
@@ -10,7 +10,7 @@ $(function() {
 
 		var input=$('#form-data').val();
 		if(input){
-		var url = "http://localhost:8080/MusicStore/music/AccessRecords/" + input;
+		var url = "http://localhost:8080/MusicStore/music/AccessRecords/searchSong";
 		$.getJSON(url, input, function(data) {
 			console.log(data);
 
@@ -38,9 +38,9 @@ $(function() {
 		}
 		
 	});
-});
+});*/
 
-/*$(function() {
+$(function() {
 	  $("#form-data").keyup(function (e) {
 		    if (e.which == 13) {
 		      $('#get-data').trigger('click');
@@ -51,14 +51,15 @@ $(function() {
 		var showData = $('#searchresult');
 
 		var input=$('#form-data').val();
-		var newurl = "http://localhost:8080/MusicStore/music/AccessRecords/" + input;
+		var newurl = "http://localhost:8080/MusicStore/music/AccessRecords/searchSong";
 				
 		$.ajax({
-			  type: 'GET',
-			  url: newurl,
-			  data: input,
-			  dataType: 'json',
-			  success: function (data) {
+			type : "POST",
+			contentType : "application/json",
+			url : newurl,
+			data : input,
+			dataType : 'json',
+			success : function(data) {
 					console.log(data);
 
 					showData.empty();
@@ -81,4 +82,5 @@ $(function() {
 			  }
 			});		
 	});
-})*/
+})
+})

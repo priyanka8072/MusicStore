@@ -25,10 +25,10 @@ public class MyController {
 		this.myservice = myservice;
 	}
 
-	@RequestMapping(value = "/searchSong/{name}", method = RequestMethod.GET, produces = "application/json")
-	public @ResponseBody ArrayList<Track> searchSong(@PathVariable String name) {
+	@RequestMapping(value = "/searchSong", method = RequestMethod.POST, produces = "application/json")
+	public @ResponseBody ArrayList<Track> searchSong(@RequestBody String input) {
 		ArrayList<Track> result = new ArrayList<Track>();
-		result = myservice.getSong(name);
+		result = myservice.getSong(input);
 		return result;
 	}
 
