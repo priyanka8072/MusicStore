@@ -4,10 +4,10 @@ $('#empSubmit').click(function(g) {
 			
 		  
 		  var user = {}
-		  user["userName"] = $("#inputName").val();
+		  user["username"] = $("#inputName").val();
 		  user["password"] = $("#inputPassword").val();
 			 
-			if(user["userName"] && user["password"]){
+			if(user["username"] && user["password"]){
 			var newurl = "http://localhost:8080/MusicStore/music/LoginController/login";
 			$.ajax({
 				type : "POST",
@@ -17,9 +17,9 @@ $('#empSubmit').click(function(g) {
 				dataType : 'json',
 				success : function(data) {
 					console.log(data);
-					window.open("invoice.html");
-					window.open('', '_self').close();
-					},
+					window.open("invoice.html","_self");
+/*					window.open('', '_self').close();
+*/					},
 					
 					error : function(e) {
 						$('.alert-danger').removeClass('hide');
@@ -28,5 +28,7 @@ $('#empSubmit').click(function(g) {
 						console.log("Error: ", e);
 					},
 			});
-			}else{alert("Please fill the mandatory data!");}
+			}else{$('.alert-danger').removeClass('hide');
+			$('.alert-danger').append("<strong>Alert!</strong> Please enter valid username and password");
+			}
 		});

@@ -1,7 +1,7 @@
 $(function() {
 
 	$('#adminSubmit').click(function() {
-		var input = $('#inputEmail').val();
+		var input = $('#inputAdmin').val();
 		if (!input && !$('#inputPassword').val()) {
 			alert("Please enter a valid username and password!")
 		} else if (input === "admin@blah.com") {
