@@ -43,7 +43,7 @@ public class MyController {
 	}
 
 	@RequestMapping(value = "/invoice", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody String invoivce(@RequestBody Invoice inv) {
+	public @ResponseBody RespPojo invoivce(@RequestBody Invoice inv) {
 		return myservice.invoice(inv);
 	}
 

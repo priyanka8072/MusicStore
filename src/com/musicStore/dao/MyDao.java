@@ -144,8 +144,8 @@ public class MyDao {
 		return response;
 	}
 
-	public String invoice(Invoice inv) {
-		String response = "";
+	public RespPojo invoice(Invoice inv) {
+		RespPojo response = new RespPojo();
 		try {
 			int id = getID(2);
 			conn = dataSource.getConnection();
@@ -163,13 +163,13 @@ public class MyDao {
 			int rs = ps.executeUpdate();
 
 			if (rs == 1) {
-				response = saveInvoiceLine(id, inv) + " and Invoice";
+				response.setStatus(saveInvoiceLine(id, inv) + " and Invoice");
 			} else
-				response = "Failed to creat an Invoice!";
+				response.setStatus("Failed to creat an Invoice!");
 			ps.close();
 
 		} catch (SQLException e) {
-			response = "Failed to update the user! : " + e.toString();
+			response.setStatus("Failed to update the user! : " + e.toString());
 			throw new RuntimeException(e);
 		} finally {
 			try {

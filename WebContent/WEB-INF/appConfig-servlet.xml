@@ -31,7 +31,7 @@
 		<property name="url" value="jdbc:mysql://localhost:3306/chinook" /><!-- 
 			jdbc:mysql://localhost:3306/chinook -->
 		<property name="username" value="root" /><!-- root -->
-		<property name="password" value="3001" /><!-- 3001 -->
+		<property name="password" value="1234" /><!-- 3001 -->
 	</bean>
 
 	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
@@ -50,6 +50,18 @@
 
 	<bean id="myController" class="com.musicStore.controller.MyController">
 		<property name="myService" ref="myService" />
+	</bean>
+	
+	<bean id="loginDao" class="com.musicStore.dao.LoginDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="loginService" class="com.musicStore.service.LoginService">
+		<property name="loginDao" ref="loginDao" />
+	</bean>
+
+	<bean id="loginController" class="com.musicStore.controller.LoginController">
+		<property name="loginService" ref="loginService" />
 	</bean>
 
 	<bean

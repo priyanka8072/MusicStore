@@ -33,4 +33,6 @@ public class SqlQuery {
 	public static String updateCustomer = "UPDATE CUSTOMER SET FIRSTNAME =?, LASTNAME=?, ADDRESS=?, "
 			+ "CITY=?, STATE=?, COUNTRY=?, POSTALCODE=?, COMPANY=?, PHONE=?, EMAIL=?, FAX=?, SUPPORTREPID=? "
 			+ " WHERE CUSTOMERID=?";
+
+	public static String login = "SELECT * FROM EMPLOYEE WHERE FIRSTNAME=? AND LASTNAME=? AND EMPLOYEEID=?";
 }

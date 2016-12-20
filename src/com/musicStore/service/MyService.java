@@ -28,7 +28,7 @@ public class MyService {
 		return myDao.saveCustomer(emp);
 	}
 
-	public String invoice(Invoice inv) {
+	public RespPojo invoice(Invoice inv) {
 		return  myDao.invoice(inv);
 	}
 
