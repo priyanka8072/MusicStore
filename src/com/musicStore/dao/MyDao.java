@@ -342,7 +342,7 @@ public class MyDao {
 			} catch (SQLException e) {
 			}
 		}
-		return null;
+		return response;
 	}
 
 }
