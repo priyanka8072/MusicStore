@@ -305,8 +305,8 @@ public class MyDao {
 		return emp;
 	}
 
-	public String updateCustomer(Employee emp) {
-		String response = null;
+	public RespPojo updateCustomer(Employee emp) {
+		RespPojo response = new RespPojo();
 		try {
 			conn = dataSource.getConnection();
 			ps = conn.prepareStatement(SqlQuery.updateCustomer);
@@ -322,19 +322,19 @@ public class MyDao {
 			ps.setString(10, emp.getEmail());
 			ps.setString(11, emp.getFax());
 			ps.setInt(12, emp.getSupportRepID());
-			int id =emp.getCustID();
+			int id = emp.getCustID();
 			ps.setInt(13, id);
 
 			int rs = ps.executeUpdate();
 
 			if (rs == 1) {
-				response = "Customer with ID " + id + " updated successfully";
+				response.setStatus("Customer with ID " + id + " updated successfully");
 			} else
-				response = "Customer with ID " + id + " could not be updated ";
+				response.setStatus("Customer with ID " + id + " could not be updated ");
 			ps.close();
 
 		} catch (SQLException e) {
-			response = response + e.toString();
+			response.setStatus(response + e.toString());
 			throw new RuntimeException(e);
 		} finally {
 			try {

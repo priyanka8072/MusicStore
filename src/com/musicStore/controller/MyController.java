@@ -53,7 +53,7 @@ public class MyController {
 	}
 	
 	@RequestMapping(value = "/updateCustomer", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody String updateCustomer(@RequestBody Employee emp) {
+	public @ResponseBody RespPojo updateCustomer(@RequestBody Employee emp) {
 		return myservice.updateCustomer(emp);
 	}
 
