@@ -131,8 +131,8 @@
 						</br>
 						<p></p>
 						<br />
-						<h1 style="color: white; background-color: black">
-							Top sellers
+						<h1><strong style="background-color: black">Top sellers</strong></h2>
+							
 							<h1>
 								<p>
 									<a class="btn btn-lg btn-primary" href="carousel/HTML/display.html"

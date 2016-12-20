@@ -60,7 +60,7 @@ $(function() {
 	  
 	  });
 	  
-	  $('#custID').keyup(function(e) {
+	  $('#custID').keyup(function() {
 			
 			var custID = $('#custID').val();
 			var url = "http://localhost:8080/MusicStore/music/AccessRecords/validateCustomer/" + custID;
@@ -101,9 +101,9 @@ $(function() {
 			
 		});
 	  
- $('#Cupd').click(function(e) {
+ $('#Cupd').click(function(h) {
 		  
-		  e.preventDefault();
+		  h.preventDefault();
 		  
 		  var emp = {}
 			emp["custID"] = $("#custID").val();
@@ -130,21 +130,20 @@ $(function() {
 				dataType : 'json',
 				success : function(data) {
 					console.log(data);
-					location.reload();
 					$('.head4').removeClass('hide');
-					$('.alert-success').append("<strong>Success!</strong> Details of customer "+emp["firstName"]+" with ID:" +data["id"]+ " updated successfully. " +
-							"<a href='customeradd.html' target='_self'> click </a> to create or update the customer");
+					$('.alert-success').append("<strong>Success!</strong> Details of customer <strong>"+emp["firstName"]+" with ID:" +emp["custID"]+ "</strong> updated successfully. " +
+							"<a href='customeradd.html' target='_self'> Click </a> to create or update the customer");
 					$('.bodyCont').addClass('hide');
 			
 				},
-			error : function(e) {
-				console.log("Error: ", e);
-			}
+				error : function(e) {
+					console.log("Error: ", e);
+				}
 			});
 			}else{alert("Please fill the mandatory data!");}
 		});
  
- $('.head4').on('click','#closed', function() {
+ $('.head4').on('click','#closed', function(e) {
 		e.preventDefault();
 		location.reload();
 

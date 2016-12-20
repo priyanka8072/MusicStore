@@ -40,8 +40,8 @@ $(function() {
 				dataType : 'json',
 				success : function(data) {
 					$('.head4').removeClass('hide');
-					$('.alert-success').append("<strong>Success!</strong> Invoice for customer with ID:" +invoice["customerID"]+ " updated successfully. " +
-							"<a href='invoice.html' target='_self'> click </a> to create new invoice");
+					$('.alert-success').append("<strong>Success!</strong> Invoice for customer ID:" +invoice["customerID"]+ " generated successfully. " +
+							"<a href='invoice.html' target='_self'> Click </a> to create new invoice");
 					$('.custInvoice').addClass('hide');	},
 					error : function(e) {
 						console.log("Error: ", e);

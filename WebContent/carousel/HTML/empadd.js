@@ -37,7 +37,9 @@ $(function() {
 								$('.tempCont').addClass('hide');
 							},
 							error : function(e) {
-								console.log("Error: ", e);
+								$('.alert-danger').removeClass('hide');
+								$('.alert-danger').append("<strong>Alert!</strong> Employee "+ emp["reportsTo"] +" does not exist. Please select another reporting manager"
+										);
 							}
 						});
 					});
