@@ -21,6 +21,8 @@ $(function() {
 						emp["email"] = $("#eemail").val();
 						emp["fax"] = $("#efax").val();
 						
+						if(emp["firstName"] && emp["lastName"] && emp["reportsTo"]){
+						
 						var newurl = "http://localhost:8080/MusicStore/music/AccessRecords/saveEmp";
 
 						$.ajax({
@@ -42,6 +44,9 @@ $(function() {
 										);
 							}
 						});
+						}else{
+							alert("Please enter mandatory fields.");
+						}
 					});
 	
 	$('#closed').click(function(e) {	

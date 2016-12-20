@@ -1,3 +1,5 @@
+$(function() {
+
 $('#empSubmit').click(function(g) {
 		  
 			g.preventDefault();
@@ -17,16 +19,22 @@ $('#empSubmit').click(function(g) {
 				dataType : 'json',
 				success : function(data) {
 					console.log(data);
-					window.open("invoice.html");
-					window.open('', '_self').close();
+					window.open("invoice.html","_self");
 					},
 					
 					error : function(e) {
 						$('.alert-danger').removeClass('hide');
 						$('.alert-danger').append("<strong>Alert!</strong> Please enter valid username and password"
 								);
-						console.log("Error: ", e);
 					},
 			});
 			}else{alert("Please fill the mandatory data!");}
 		});
+
+$('.close').click(function(e) {	
+	e.preventDefault();
+	location.reload();
+
+});
+
+})
